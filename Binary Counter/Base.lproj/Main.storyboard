@@ -1,24 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Binary_Counter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vUN-Zj-8EU">
+                                <rect key="frame" x="0.0" y="44" width="414" height="732"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="70" id="NVu-2N-Lvf" customClass="TableCell" customModule="Binary_Counter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NVu-2N-Lvf" id="rQs-4k-S1r">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGF-H8-J4o">
+                                                    <rect key="frame" x="355" y="14" width="39" height="42"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain">
+                                                        <attributedString key="attributedTitle">
+                                                            <fragment content="+">
+                                                                <attributes>
+                                                                    <font key="NSFont" size="24" name="Helvetica"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <color key="baseForegroundColor" systemColor="labelColor"/>
+                                                    </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="plusBtnPressed:" destination="NVu-2N-Lvf" eventType="touchUpInside" id="oFP-RG-20v"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T1v-CN-yYx">
+                                                    <rect key="frame" x="20" y="14" width="32" height="42"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain">
+                                                        <attributedString key="attributedTitle">
+                                                            <fragment content="-">
+                                                                <attributes>
+                                                                    <font key="NSFont" size="24" name="Helvetica"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <color key="baseForegroundColor" systemColor="labelColor"/>
+                                                    </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="minuseBtnPressed:" destination="NVu-2N-Lvf" eventType="touchUpInside" id="rHU-cG-iKr"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="power of 10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f15-LS-lGp">
+                                                    <rect key="frame" x="264" y="24.5" width="89" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="T1v-CN-yYx" firstAttribute="height" secondItem="rQs-4k-S1r" secondAttribute="height" multiplier="0.6" id="2iI-8Z-H2E"/>
+                                                <constraint firstItem="T1v-CN-yYx" firstAttribute="centerY" secondItem="rQs-4k-S1r" secondAttribute="centerY" id="PAE-6q-6sh"/>
+                                                <constraint firstItem="f15-LS-lGp" firstAttribute="centerY" secondItem="rQs-4k-S1r" secondAttribute="centerY" id="e8e-9b-OG9"/>
+                                                <constraint firstItem="PGF-H8-J4o" firstAttribute="height" secondItem="rQs-4k-S1r" secondAttribute="height" multiplier="0.6" id="h60-1s-JYg"/>
+                                                <constraint firstItem="T1v-CN-yYx" firstAttribute="leading" secondItem="rQs-4k-S1r" secondAttribute="leadingMargin" id="ntb-d2-L1r"/>
+                                                <constraint firstItem="PGF-H8-J4o" firstAttribute="width" secondItem="rQs-4k-S1r" secondAttribute="width" multiplier="0.0942029" id="uyF-lD-obk"/>
+                                                <constraint firstItem="PGF-H8-J4o" firstAttribute="leading" secondItem="f15-LS-lGp" secondAttribute="trailing" constant="2" id="wI5-Em-ylL"/>
+                                                <constraint firstItem="PGF-H8-J4o" firstAttribute="centerY" secondItem="rQs-4k-S1r" secondAttribute="centerY" id="y5V-y9-r0Q"/>
+                                                <constraint firstItem="T1v-CN-yYx" firstAttribute="width" secondItem="rQs-4k-S1r" secondAttribute="width" multiplier="0.0772947" id="yUA-5w-SEb"/>
+                                                <constraint firstItem="PGF-H8-J4o" firstAttribute="trailing" secondItem="rQs-4k-S1r" secondAttribute="trailingMargin" id="zD1-Wc-1L8"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.74509803919999995" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="numberLabel" destination="f15-LS-lGp" id="cmP-Tc-dL7"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xRf-0r-kqk">
+                                <rect key="frame" x="0.0" y="774" width="414" height="88"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total: 0" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDO-xQ-vIW">
+                                        <rect key="frame" x="167.5" y="29.5" width="79.5" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <constraints>
+                                    <constraint firstItem="MDO-xQ-vIW" firstAttribute="centerX" secondItem="xRf-0r-kqk" secondAttribute="centerX" id="0Md-J5-Sev"/>
+                                    <constraint firstItem="MDO-xQ-vIW" firstAttribute="centerY" secondItem="xRf-0r-kqk" secondAttribute="centerY" id="hoM-5N-JA5"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xRf-0r-kqk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="G43-un-rxX"/>
+                            <constraint firstItem="vUN-Zj-8EU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="HSQ-cf-b0B"/>
+                            <constraint firstItem="xRf-0r-kqk" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="XVU-Er-aqD"/>
+                            <constraint firstItem="xRf-0r-kqk" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="cLu-KL-E4l"/>
+                            <constraint firstItem="xRf-0r-kqk" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.0982143" id="ik2-5X-33w"/>
+                            <constraint firstItem="xRf-0r-kqk" firstAttribute="top" secondItem="vUN-Zj-8EU" secondAttribute="bottom" constant="-2" id="mVB-CC-W7F"/>
+                            <constraint firstItem="vUN-Zj-8EU" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="mt3-j5-C4G"/>
+                            <constraint firstItem="vUN-Zj-8EU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zcK-Kg-nP2"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="myTabelView" destination="vUN-Zj-8EU" id="lLb-2t-PLG"/>
+                        <outlet property="totalAmount" destination="MDO-xQ-vIW" id="Mpo-Qi-az4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="114.50892857142857"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
